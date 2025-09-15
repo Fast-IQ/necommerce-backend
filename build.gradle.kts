@@ -6,12 +6,12 @@ plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.9.25"
     id("org.sonarqube") version "6.3.1.5724"
     kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version"1.9.25"
+    kotlin("plugin.spring") version "1.9.25"
 }
 
 group = "ru.netology"
 version = "1.0"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
