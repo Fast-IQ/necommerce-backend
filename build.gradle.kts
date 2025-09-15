@@ -4,6 +4,7 @@ plugins {
     id("org.springframework.boot") version "2.3.5.RELEASE"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.4.20-RC"
+    id("org.sonarqube") version "6.3.1.5724"
     kotlin("jvm") version "1.4.10"
     kotlin("plugin.spring") version "1.4.10"
 }
@@ -30,6 +31,13 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+}
+
+sonar {
+  properties {
+    property("sonar.projectKey", "Fast-IQ_necommerce-backend")
+    property("sonar.organization", "fast-iq180211")
+  }
 }
 
 tasks.withType<Test> {
