@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.3.5.RELEASE"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.4.20-RC"
     id("org.sonarqube") version "6.3.1.5724"
     kotlin("jvm") version "1.4.10"
     kotlin("plugin.spring") version "1.4.10"
@@ -30,6 +29,11 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+    }
+    configurations.all {
+        resolutionStrategy {
+            force("org.bouncycastle:bcprov-jdk15on:1.70") // Старая совместимая версия
+        }
     }
 }
 
